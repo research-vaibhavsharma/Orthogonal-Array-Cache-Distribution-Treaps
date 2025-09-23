@@ -14,32 +14,32 @@ An Orthogonal Array (OA) is a combinatorial structure from statistical design th
 *Our implementation simulates this property by using a cryptographic hash function (SHA-256) to deterministically generate a uniformly distributed replica set for any given key.*
 ### 2. Treaps (for Logical Organization)
 A Treap is a randomized binary search tree that maintains its balance with high probability. It cleverly combines two properties in a single node:
-* Binary Search Tree (BST) Property: Keys are ordered, allowing for efficient O(log n) search operations.
-* Heap Property: Each node is assigned a random priority, and the tree maintains heap order with respect to these priorities.
+* **Binary Search Tree (BST) Property:** Keys are ordered, allowing for efficient `O(log n)` search operations.
+* **Heap Property:** Each node is assigned a random priority, and the tree maintains heap order with respect to these priorities.
 This dual-property system ensures that the tree remains balanced on average, leading to efficient insertions, deletions, and lookups without the complex balancing logic of structures like Red-Black Trees.
 
 
 
 ## Key Features
-* Provable Load Balancing: Guarantees an even distribution of data across physical nodes, leveraging the mathematical properties of Orthogonal Arrays.
+* **Provable Load Balancing:** Guarantees an even distribution of data across physical nodes, leveraging the mathematical properties of Orthogonal Arrays.
 
-* Inherent Fault Tolerance: Each piece of data is replicated across a configurable number of nodes (replica_factor), ensuring data availability even if some nodes fail.
+* **Inherent Fault Tolerance:** Each piece of data is replicated across a configurable number of nodes (`replica_factor`), ensuring data availability even if some nodes fail.
 
-* High Scalability: With an average time complexity of O(log n) for all core operations (insert, search, delete), the system scales efficiently as the number of keys grows.
+* **High Scalability:** With an average time complexity of `O(log n)` for all core operations (insert, search, delete), the system scales efficiently as the number of keys grows.
 
-* Hybrid Random-Deterministic Architecture: Combines the strengths of a deterministic mapping scheme (for predictability and uniformity) with a probabilistic data structure (for simplicity and efficiency).
+* **Hybrid Random-Deterministic Architecture:** Combines the strengths of a deterministic mapping scheme (for predictability and uniformity) with a probabilistic data structure (for simplicity and efficiency).
 ## How It Works
 The workflow of an OACDT operation is a two-step process:
 
-* Deterministic Mapping (OA): When a key-value pair is to be stored, the OACDT first uses its OA-inspired hashing function (`_get_replicas_from_oa`) to calculate the specific set of physical nodes where the data and its replicas will reside.
+* **Deterministic Mapping (OA):** When a key-value pair is to be stored, the OACDT first uses its OA-inspired hashing function (`_get_replicas_from_oa`) to calculate the specific set of physical nodes where the data and its replicas will reside.
 
-* Logical Operation (Treap): The key-value pair is then inserted into the central Treap data structure. This operation maintains the logical organization of all keys in a balanced tree, independent of their physical location.
+* **Logical Operation (Treap):** The key-value pair is then inserted into the central Treap data structure. This operation maintains the logical organization of all keys in a balanced tree, independent of their physical location.
 
 When a search is performed, the OACDT first determines the responsible replica set and then performs a fast O(`log n`) lookup in the Treap to retrieve the data.
 ## Installation
-The OACDT is implemented in a single Python file (oacdt.py) and requires no external libraries beyond Python's standard hashlib, random, and collections.
+The OACDT is implemented in a single Python file (`oacdt.py`) and requires no external libraries beyond Python's standard hashlib, random, and collections.
 
-Simply save the oacdt.py file in your project directory and import the class:
+Simply save the `oacdt.py` file in your project directory and import the class:
 ```python
 from oacdt import OACDT
 ```
