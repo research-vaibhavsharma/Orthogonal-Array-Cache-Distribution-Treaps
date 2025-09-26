@@ -3,7 +3,7 @@
 
 This repository contains the Python implementation of the Orthogonal Array Cache Distribution Treap (OACDT), a novel hybrid data structure designed for scalable, fault-tolerant distributed caching. It synergizes the deterministic uniformity of Orthogonal Arrays with the probabilistic efficiency of Treaps.
 
-This work is based on the research paper: "Orthogonal Array Cache Distribution Treaps: A Hybrid Random-Deterministic Approach for Scalable, Fault-Tolerant Distributed Caching" by Vaibhav Sharma, Kamal Pardasani, Mayank Namdev, and Amit Bhagat, currently under review at the IEEE Open Journal of the Computer Society.
+This work is based on the research paper: "Orthogonal Array Cache Distribution Treaps: A Hybrid Random-Deterministic Approach for Scalable, Fault-Tolerant Distributed Caching".
 
 ## Core Concepts
 The OACDT is built upon two powerful mathematical constructs to address the challenges of large-scale distributed systems:
