@@ -77,14 +77,4 @@ print(f"Data after deletion: {oacdt.search('user:101')}")
 # Output: Data after deletion: None
 ```
 
-## Citation
-This implementation is based on the following research paper. If you use this code in your research, please consider citing the original work:
-```
 
-@article{sharma2025oacdt,
-  title={Orthogonal Array Cache Distribution Treaps: A Hybrid Random-Deterministic Approach for Scalable, Fault-Tolerant Distributed Caching},
-  author={Sharma, Vaibhav and Pardasani, Kamal and Namdev, Mayank and Bhagat, Amit},
-  journal={IEEE Open Journal of the Computer Society (Pending Review)},
-  year={2025}
-}
-```
